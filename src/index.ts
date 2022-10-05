@@ -42,8 +42,8 @@ app.all("/api/*", async (request, reply) => {
     .send(await response.text());
 });
 
-const host = "0.0.0.0";
-const port = 3333;
+const host = process.env.HOST || "0.0.0.0";
+const port = process.env.PORT || 3333;
 
 const canonicalUrl = new URL(
   process.env.CANONICAL_URL || `http://127.0.0.1:${port}`
